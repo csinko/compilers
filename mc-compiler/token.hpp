@@ -94,6 +94,7 @@ enum radix {
 };
 
 const char* toString(token_name n);
+const char* getSpelling(token_name n);
 const char* toString(relation_op op);
 const char* toString(arithmetic_op op);
 const char* toString(bitwise_op op);

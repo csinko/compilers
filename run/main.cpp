@@ -1,12 +1,13 @@
 #include "mc-compiler/file.hpp"
 #include "mc-compiler/lexer.hpp"
+#Include "mc-compiler/parser.hpp"
 
 #include <iostream>
 
 int main(int argc, char* argv[]) {
   file input(argv[1]);
   symbol_table syms;
-  lexer lex(syms, input);
-  while (token tok = lex())
-    std::cout << tok << '\n';
+
+  parser p(syms, input);
+  p.parse_declaration();
 }
