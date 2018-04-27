@@ -74,6 +74,11 @@ lexer::lexer(symbol_table& syms, const file& f) :
         {symbols.get("int"), ts_int},
         {symbols.get("bool"), ts_bool},
         {symbols.get("float"), ts_float},
+        {symbols.get("as"), kw_as},
+        {symbols.get("break"), kw_break},
+        {symbols.get("continue"), kw_continue},
+        {symbols.get("return"), kw_return},
+        {symbols.get("while"), kw_while},
         });
     }
 
@@ -236,6 +241,10 @@ token lexer::scan() {
         case '+':
             return lexArithmeticOp(op_add);
         case '-':
+            //Check for arrow op too
+            if (peek(1) == '>') {
+              return lexArrowOp();
+            }
             return lexArithmeticOp(op_sub);
         case '*':
             return lexArithmeticOp(op_mul);
@@ -327,6 +336,12 @@ token lexer::lexChar() {
     return {c, m_tok_loc};
 }
 
+
+token lexer::lexArrowOp() {
+    accept(2);
+    return {tok_arrow_operator, m_tok_loc};
+
+}
 
 token lexer::lexString() {
     assert(*m_first == '"');

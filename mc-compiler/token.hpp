@@ -26,6 +26,7 @@ enum token_name {
   tok_logical_operator,
   tok_conditional_operator,
   tok_assignment_operator,
+  tok_arrow_operator, 
 
   //Keywords
   kw_def,
@@ -33,6 +34,11 @@ enum token_name {
   kw_else,
   kw_var,
   kw_let,
+  kw_as,
+  kw_break,
+  kw_continue,
+  kw_return,
+  kw_while,
 
   //Everything else
   tok_identifier,
@@ -78,6 +84,11 @@ enum logical_op {
   logical_and,
   logical_or,
   logical_not,
+};
+
+enum pointer_op {
+    op_addr,
+    op_deref,
 };
 
 enum type_spec {
@@ -173,6 +184,9 @@ class token {
         return m_loc;
     }
 
+    bool isIdentifier() const {
+        return m_name == tok_identifier;
+    }
     bool isInteger() const;
     bool isFloatingPoint() const;
 

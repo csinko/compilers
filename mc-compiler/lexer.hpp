@@ -34,6 +34,7 @@ class lexer {
     token lexRelationalOp(int len, relation_op op);
     token lexArithmeticOp(arithmetic_op op);
     token lexBitwiseOp(int len, bitwise_op op);
+    token lexArrowOp();
     token lexConditionalOp();
     token lexAssignmentOp();
     token lexWord();

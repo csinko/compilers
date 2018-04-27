@@ -41,6 +41,10 @@ const char* toString(token_name n) {
         return "conditional-operator";
     case tok_assignment_operator:
         return "assignemnt-operator";
+    case tok_arrow_operator:
+        return "arrow-operator";
+
+
 
     case kw_def:
         return "def";
@@ -52,6 +56,16 @@ const char* toString(token_name n) {
         return "var";
     case kw_let:
         return "let";
+    case kw_as:
+        return "as";
+    case kw_break:
+        return "break";
+    case kw_continue:
+        return "continue";
+    case kw_return:
+        return "return";
+    case kw_while:
+        return "while";
 
     case tok_identifier:
         return "identifier";

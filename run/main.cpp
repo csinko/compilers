@@ -1,6 +1,6 @@
 #include "mc-compiler/file.hpp"
 #include "mc-compiler/lexer.hpp"
-#Include "mc-compiler/parser.hpp"
+#include "mc-compiler/parser.hpp"
 
 #include <iostream>
 
@@ -9,5 +9,5 @@ int main(int argc, char* argv[]) {
   symbol_table syms;
 
   parser p(syms, input);
-  p.parse_declaration();
+  decl* dec = p.parseDeclaration();
 }
